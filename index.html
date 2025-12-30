@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <header class="header">
+            <div class="score-board">SCORE: <span id="score">0</span></div>
+            <div class="high-score">BEST: <span id="highScore">0</span></div>
+        </header>
+
+        <main class="canvas-wrapper">
+            <canvas id="snakeGame" width="400" height="400"></canvas>
+            
+            <section id="startMenu" class="overlay">
+                <h1>NEON SNAKE</h1>
+                
+                <div class="difficulty-box">
+                    <p>CHOOSE DIFFICULTY</p>
+                    <div class="modes">
+                        <label>
+                            <input type="radio" name="speed" value="150" onclick="game.updateMenuHighScore()">
+                            <span>SLOW</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="speed" value="100" checked onclick="game.updateMenuHighScore()">
+                            <span>NORMAL</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="speed" value="60" onclick="game.updateMenuHighScore()">
+                            <span>FAST</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mode-record">
+                    MODE BEST: <span id="bestScore">0</span>
+                </div>
+
+                <button id="startButton">START GAME</button>
+                <button id="resetScoreButton" class="reset-btn">RESET RECORDS</button>
+            </section>
+
+            <section id="gameOver" class="overlay" style="display: none;">
+                <h1>GAME OVER</h1>
+                <p class="final-result">FINAL SCORE: <span id="finalScore">0</span></p>
+                <button onclick="location.reload()">PLAY AGAIN</button>
+            </section>
+        </main>
+
+        <footer class="controls-hint">
+            <p>USE ARROW KEYS TO PLAY</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
